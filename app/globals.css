@@ -15,6 +15,22 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 5rem;
+  /* Tell the browser the UI is dark so native controls - date pickers,
+     scrollbars, autofill - render light-on-dark instead of invisible. */
+  color-scheme: dark;
+}
+
+/* iOS Safari gives date inputs an intrinsic width that ignores width: 100%,
+   and centres their value. Both push them out of line with the text fields. */
+input[type="date"] {
+  -webkit-appearance: none;
+  appearance: none;
+  min-width: 0;
+}
+
+input[type="date"]::-webkit-date-and-time-value {
+  text-align: left;
+  min-height: 1lh;
 }
 
 body {

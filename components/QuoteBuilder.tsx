@@ -162,7 +162,7 @@ export function QuoteBuilder() {
               </p>
               <div className="mt-6 grid gap-4 sm:grid-cols-2">
                 {fields.map((field) => (
-                  <label key={field.id} className="block">
+                  <label key={field.id} className="block min-w-0">
                     <span className="font-display text-xs tracking-[0.12em] text-white/60 uppercase">
                       {field.label}
                     </span>
