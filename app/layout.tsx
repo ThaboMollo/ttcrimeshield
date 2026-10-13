@@ -7,40 +7,81 @@ const display = Oswald({
   variable: "--font-display",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
+  display: "swap",
 });
 
-const body = Inter({ variable: "--font-body", subsets: ["latin"] });
+const body = Inter({ variable: "--font-body", subsets: ["latin"], display: "swap" });
+
+const title = `${site.legalName} | VIP Protection & Vehicle Recovery in ${site.region}`;
+const description =
+  "24/7 VIP and executive protection, close protection officers, event security, chauffeured vehicle hire and stolen vehicle recovery across Gauteng and South Africa. Locate your stolen vehicle from R10 000. Call 062 651 5803.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
-  title: {
-    default: `${site.legalName} — ${site.mission.lead}`,
-    template: `%s | ${site.name}`,
-  },
-  description: `${site.blurb} VIP and executive protection, travel close protection, event security, chauffeured vehicle hire and stolen vehicle recovery across South Africa. ${site.slogan}.`,
+  title: { default: title, template: `%s | ${site.name}` },
+  description,
+  applicationName: site.legalName,
+  authors: [{ name: site.legalName }],
+  creator: site.legalName,
+  publisher: site.legalName,
+  category: "Security Services",
   keywords: [
     "VIP protection South Africa",
-    "close protection officer",
-    "executive protection Johannesburg",
-    "event security",
-    "stolen vehicle recovery",
-    "bodyguard services",
-    "chauffeur hire",
+    "close protection officer Johannesburg",
+    "executive protection Gauteng",
+    "bodyguard services Johannesburg",
+    "stolen vehicle recovery South Africa",
+    "vehicle tracking and recovery",
+    "event security Johannesburg",
+    "K9 security unit",
+    "chauffeur hire Sandton",
+    "airport transfer Johannesburg",
+    "armed escort services",
+    "private security company Gauteng",
   ],
   openGraph: {
     type: "website",
+    locale: "en_ZA",
     url: site.url,
     siteName: site.legalName,
-    title: `${site.legalName} — ${site.mission.lead}`,
-    description: site.blurb,
-    images: [{ url: "/img/team.jpg", width: 1179, height: 810, alt: site.legalName }],
+    title,
+    description,
+    images: [
+      {
+        url: "/og.jpg",
+        width: 1200,
+        height: 630,
+        type: "image/jpeg",
+        alt: `${site.legalName} — ${site.mission.lead} ${site.mission.accent}`,
+      },
+    ],
   },
-  twitter: { card: "summary_large_image" },
-  alternates: { canonical: site.url },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+    images: ["/og.jpg"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+  alternates: { canonical: "/" },
+  formatDetection: { telephone: true, address: true, email: true },
+  // Paste the token from Google Search Console here to verify ownership.
+  // verification: { google: "..." },
 };
 
 export const viewport: Viewport = {
   themeColor: "#070707",
+  colorScheme: "dark",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

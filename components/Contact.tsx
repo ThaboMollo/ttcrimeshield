@@ -81,7 +81,7 @@ export function Contact() {
             <div className="relative aspect-4/5 overflow-hidden rounded-xl border border-hairline">
               <Image
                 src="/img/cpo-red.jpg"
-                alt="Close protection officer on duty"
+                alt="TT Crimeshield close protection officer on duty in Johannesburg"
                 fill
                 sizes="(min-width: 1024px) 40vw, 90vw"
                 className="object-cover"

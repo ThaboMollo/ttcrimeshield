@@ -11,6 +11,7 @@ const links = [
   { href: "#transport", label: "Vehicle Hire" },
   { href: "#recovery", label: "Recovery" },
   { href: "#about", label: "About" },
+  { href: "#faq", label: "FAQ" },
   { href: "#contact", label: "Contact" },
 ];
 

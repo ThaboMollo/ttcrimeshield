@@ -21,7 +21,7 @@ export function About() {
             <div className="relative aspect-16/11 overflow-hidden rounded-xl border border-hairline">
               <Image
                 src="/img/team.jpg"
-                alt="The TT Crimeshield protection team"
+                alt="TT Crimeshield close protection officers on duty in Gauteng"
                 fill
                 sizes="(min-width: 1024px) 45vw, 90vw"
                 className="object-cover"
@@ -54,7 +54,7 @@ export function About() {
               <div className="relative aspect-3/2 overflow-hidden rounded-lg border border-hairline">
                 <Image
                   src="/img/motorcade.jpg"
-                  alt="Protection motorcade on deployment"
+                  alt="TT Crimeshield VIP protection motorcade on deployment"
                   fill
                   sizes="(min-width: 1024px) 22vw, 45vw"
                   className="object-cover"
@@ -63,7 +63,7 @@ export function About() {
               <div className="relative aspect-3/2 overflow-hidden rounded-lg border border-hairline">
                 <Image
                   src="/img/fleet-home.jpg"
-                  alt="Residential protection detail"
+                  alt="TT Crimeshield residential protection detail at a Gauteng home"
                   fill
                   sizes="(min-width: 1024px) 22vw, 45vw"
                   className="object-cover"

@@ -56,7 +56,7 @@ export function Transport() {
               <div className="relative col-span-2 aspect-[16/10] overflow-hidden rounded-xl border border-hairline">
                 <Image
                   src="/img/van-front.jpg"
-                  alt="TT Crimeshield branded chauffeur van"
+                  alt="TT Crimeshield chauffeur van with professional driver for airport transfers"
                   fill
                   sizes="(min-width: 1024px) 40vw, 90vw"
                   className="object-cover"
@@ -65,7 +65,7 @@ export function Transport() {
               <div className="relative aspect-4/3 overflow-hidden rounded-xl border border-hairline">
                 <Image
                   src="/img/van-side.jpg"
-                  alt="Chauffeur vehicle, side profile"
+                  alt="TT Crimeshield hire vehicle for long and short distance travel"
                   fill
                   sizes="(min-width: 1024px) 20vw, 45vw"
                   className="object-cover"
@@ -74,7 +74,7 @@ export function Transport() {
               <div className="relative aspect-4/3 overflow-hidden rounded-xl border border-hairline">
                 <Image
                   src="/img/fleet-air.jpg"
-                  alt="Protection fleet with helicopter transfer"
+                  alt="TT Crimeshield protection fleet and helicopter transfer logistics"
                   fill
                   sizes="(min-width: 1024px) 20vw, 45vw"
                   className="object-cover"

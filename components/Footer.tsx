@@ -22,6 +22,10 @@ export async function Footer() {
           {site.legalName} · Professional service · Punctual · Discreet
           {site.psira ? ` · PSIRA ${site.psira}` : ""}
         </p>
+        <p className="max-w-lg text-xs leading-relaxed text-white/30">
+          VIP protection, close protection officers, event security, chauffeured vehicle
+          hire and stolen vehicle recovery across {site.areaServed}.
+        </p>
         <p className="text-xs text-white/25">
           &copy; {year} {site.legalName}. All rights reserved.
         </p>
