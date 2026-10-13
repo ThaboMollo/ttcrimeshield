@@ -8,6 +8,7 @@ import { site } from "@/lib/site";
 
 const links = [
   { href: "#services", label: "Services" },
+  { href: "#cctv", label: "CCTV" },
   { href: "#transport", label: "Vehicle Hire" },
   { href: "#recovery", label: "Recovery" },
   { href: "#about", label: "About" },
@@ -59,7 +60,7 @@ export function Nav() {
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-7 lg:flex">
+        <nav className="hidden items-center gap-6 lg:flex">
           {links.map((link) => (
             <a
               key={link.href}

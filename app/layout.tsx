@@ -14,7 +14,7 @@ const body = Inter({ variable: "--font-body", subsets: ["latin"], display: "swap
 
 const title = `${site.legalName} | VIP Protection & Vehicle Recovery in ${site.region}`;
 const description =
-  "24/7 VIP and executive protection, close protection officers, event security, chauffeured vehicle hire and stolen vehicle recovery across Gauteng and South Africa. Locate your stolen vehicle from R10 000. Call 062 651 5803.";
+  "24/7 VIP and executive protection, event security, CCTV camera installation, chauffeured vehicle hire and stolen vehicle recovery across Gauteng and South Africa. Locate your stolen vehicle from R10 000. Call 062 651 5803.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -33,6 +33,10 @@ export const metadata: Metadata = {
     "stolen vehicle recovery South Africa",
     "vehicle tracking and recovery",
     "event security Johannesburg",
+    "CCTV installation Johannesburg",
+    "CCTV camera installation Gauteng",
+    "solar powered CCTV cameras South Africa",
+    "home security cameras Johannesburg",
     "K9 security unit",
     "chauffeur hire Sandton",
     "airport transfer Johannesburg",

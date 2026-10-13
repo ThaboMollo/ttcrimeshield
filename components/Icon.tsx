@@ -1,6 +1,7 @@
 import {
   BusFront,
   CarFront,
+  Cctv,
   ClipboardList,
   Globe,
   MapPin,
@@ -27,6 +28,7 @@ const map: Record<string, LucideIcon> = {
   tow: Truck,
   "shield-car": ShieldCheck,
   search: UserRoundSearch,
+  cctv: Cctv,
 };
 
 export function Icon({ name, className }: { name: string; className?: string }) {

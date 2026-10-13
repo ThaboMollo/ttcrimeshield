@@ -1,4 +1,5 @@
 import { About } from "@/components/About";
+import { Cctv } from "@/components/Cctv";
 import { Contact } from "@/components/Contact";
 import { Faq } from "@/components/Faq";
 import { FloatingActions } from "@/components/FloatingActions";
@@ -21,6 +22,7 @@ export default function Home() {
         <Pillars />
         <Services />
         <QuoteBuilder />
+        <Cctv />
         <Transport />
         <Recovery />
         <About />

@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { ArrowLeft, ArrowRight, Check, MessageCircle } from "lucide-react";
+import { ArrowLeft, ArrowRight, Check, ChevronDown, MessageCircle } from "lucide-react";
 import { Icon } from "./Icon";
 import { SectionHeading } from "./SectionHeading";
 import { categories, fieldsFor, services } from "@/lib/services";
@@ -166,17 +166,42 @@ export function QuoteBuilder() {
                     <span className="font-display text-xs tracking-[0.12em] text-white/60 uppercase">
                       {field.label}
                     </span>
-                    <input
-                      type={field.type === "number" ? "number" : field.type}
-                      inputMode={field.type === "number" ? "numeric" : undefined}
-                      min={field.type === "number" ? 1 : undefined}
-                      placeholder={field.placeholder}
-                      value={answers[field.id] ?? ""}
-                      onChange={(e) =>
-                        setAnswers((prev) => ({ ...prev, [field.id]: e.target.value }))
-                      }
-                      className="mt-1.5 w-full rounded-lg border border-white/12 bg-black/50 px-3.5 py-2.5 text-sm text-white placeholder:text-white/25 focus:border-gold focus:outline-none"
-                    />
+                    {field.type === "select" ? (
+                      <span className="relative mt-1.5 block">
+                        <select
+                          value={answers[field.id] ?? ""}
+                          onChange={(e) =>
+                            setAnswers((prev) => ({ ...prev, [field.id]: e.target.value }))
+                          }
+                          className={`w-full appearance-none rounded-lg border border-white/12 bg-black/50 py-2.5 pr-10 pl-3.5 text-sm focus:border-gold focus:outline-none ${
+                            answers[field.id] ? "text-white" : "text-white/25"
+                          }`}
+                        >
+                          <option value="">Select…</option>
+                          {field.options?.map((option) => (
+                            <option key={option} value={option}>
+                              {option}
+                            </option>
+                          ))}
+                        </select>
+                        <ChevronDown
+                          className="pointer-events-none absolute top-1/2 right-3 size-4 -translate-y-1/2 text-white/40"
+                          aria-hidden
+                        />
+                      </span>
+                    ) : (
+                      <input
+                        type={field.type === "number" ? "number" : field.type}
+                        inputMode={field.type === "number" ? "numeric" : undefined}
+                        min={field.type === "number" ? 1 : undefined}
+                        placeholder={field.placeholder}
+                        value={answers[field.id] ?? ""}
+                        onChange={(e) =>
+                          setAnswers((prev) => ({ ...prev, [field.id]: e.target.value }))
+                        }
+                        className="mt-1.5 w-full rounded-lg border border-white/12 bg-black/50 px-3.5 py-2.5 text-sm text-white placeholder:text-white/25 focus:border-gold focus:outline-none"
+                      />
+                    )}
                   </label>
                 ))}
               </div>

@@ -1,15 +1,18 @@
-export type FieldType = "text" | "date" | "number" | "textarea";
+export type FieldType = "text" | "date" | "number" | "textarea" | "select";
 
 export interface Field {
   id: string;
   label: string;
   type: FieldType;
   placeholder?: string;
+  /** Choices for `select` fields. */
+  options?: string[];
 }
 
 export type CategoryId =
   | "close-protection"
   | "events"
+  | "cctv"
   | "transport"
   | "recovery"
   | "investigations";
@@ -32,6 +35,7 @@ export interface Service {
 export const categories: { id: CategoryId; label: string }[] = [
   { id: "close-protection", label: "Close Protection" },
   { id: "events", label: "Events" },
+  { id: "cctv", label: "CCTV & Installations" },
   { id: "transport", label: "Transport" },
   { id: "recovery", label: "Vehicle Recovery" },
   { id: "investigations", label: "Investigations" },
@@ -56,6 +60,36 @@ const f = {
   lastSeen: { id: "lastSeen", label: "Last seen — where and when", type: "text" },
   caseRef: { id: "caseRef", label: "SAPS case number (if any)", type: "text" },
   subject: { id: "subject", label: "Person / subject", type: "text", placeholder: "Name or description" },
+  siteAddress: { id: "siteAddress", label: "Installation address", type: "text", placeholder: "Street, suburb, city" },
+  propertyType: {
+    id: "propertyType",
+    label: "Property type",
+    type: "select",
+    options: ["Home", "Business / retail", "Complex or estate", "Farm or smallholding"],
+  },
+  channels: {
+    id: "channels",
+    label: "How many cameras",
+    type: "select",
+    options: ["4 channels", "8 channels", "16 channels", "Not sure yet"],
+  },
+  cameraType: {
+    id: "cameraType",
+    label: "Camera type",
+    type: "select",
+    options: ["Wired", "Solar powered", "SIM card (no WiFi needed)", "WiFi", "Not sure yet"],
+  },
+  paymentOption: {
+    id: "paymentOption",
+    label: "Payment option",
+    type: "select",
+    options: [
+      "Once-off payment — free installation",
+      "Monthly payment — installation fee applies",
+      "Not sure yet",
+    ],
+  },
+  installDate: { id: "installDate", label: "Preferred installation date", type: "date" },
   lastKnown: { id: "lastKnown", label: "Last known location", type: "text" },
 } satisfies Record<string, Field>;
 
@@ -131,6 +165,23 @@ export const services: Service[] = [
       "Medical teams",
     ],
     fields: [f.eventType, f.startDate, f.venue, f.guests],
+  },
+  {
+    id: "cctv",
+    name: "CCTV Camera Installation",
+    tagline: "4 to 16 channels",
+    description:
+      "Professional CCTV installation for homes and businesses — from 4 channels up to 16, wired or solar powered, viewed live from your phone.",
+    category: "cctv",
+    icon: "cctv",
+    highlights: [
+      "Solar powered, SIM card & WiFi cameras",
+      "Wired camera systems",
+      "From 4 up to 16 channels",
+      "Live viewing from your phone",
+      "Once-off or monthly payment options",
+    ],
+    fields: [f.siteAddress, f.propertyType, f.channels, f.cameraType, f.paymentOption, f.installDate],
   },
   {
     id: "vehicle-hire",

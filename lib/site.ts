@@ -54,6 +54,10 @@ export const faqs = [
     a: "Yes. We provide discreet close protection for individuals, executives and families — including residential standby, travel close protection and escort services for loved ones or valuable cargo.",
   },
   {
+    q: "Do you install CCTV cameras?",
+    a: "Yes. We install CCTV systems from 4 channels up to 16 channels for homes and businesses — wired cameras as well as solar powered, SIM card and WiFi cameras you can view live from your phone. There are two ways to pay: a once-off payment, which includes free installation, or a monthly payment, where an installation fee applies.",
+  },
+  {
     q: "Can I hire a vehicle with a driver?",
     a: "Yes. Every vehicle we hire out comes with a professional driver. Our fleet handles airport transfers, corporate travel, events and functions, family trips, and both long and short distance travel.",
   },
