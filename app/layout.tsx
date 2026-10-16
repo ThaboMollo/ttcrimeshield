@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Oswald, Inter } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import { site } from "@/lib/site";
 import "./globals.css";
 
@@ -91,7 +92,10 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en-ZA" className={`${display.variable} ${body.variable} h-full antialiased`}>
-      <body className="min-h-full bg-ink">{children}</body>
+      <body className="min-h-full bg-ink">
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }
