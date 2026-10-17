@@ -2,6 +2,8 @@ import { services } from "./services";
 import { faqs, site } from "./site";
 
 const ORG = `${site.url}/#organization`;
+const WEBSITE = `${site.url}/#website`;
+const WEBPAGE = `${site.url}/#webpage`;
 
 /**
  * One JSON-LD graph describing the business, what it sells, and the FAQ.
@@ -57,7 +59,15 @@ export function buildSchema() {
               closes: "23:59",
             },
           },
+          {
+            "@type": "ContactPoint",
+            telephone: `+${site.whatsapp.e164}`,
+            contactType: "customer service",
+            availableLanguage: ["en"],
+            areaServed: "ZA",
+          },
         ],
+        knowsLanguage: "en-ZA",
         openingHoursSpecification: {
           "@type": "OpeningHoursSpecification",
           dayOfWeek: [
@@ -96,15 +106,29 @@ export function buildSchema() {
       },
       {
         "@type": "WebSite",
-        "@id": `${site.url}/#website`,
+        "@id": WEBSITE,
         url: site.url,
         name: site.legalName,
+        alternateName: site.name,
+        description: site.blurb,
         publisher: { "@id": ORG },
+        inLanguage: "en-ZA",
+      },
+      {
+        "@type": "WebPage",
+        "@id": WEBPAGE,
+        url: site.url,
+        name: `${site.legalName} — ${site.mission.lead} ${site.mission.accent}`,
+        description: site.blurb,
+        isPartOf: { "@id": WEBSITE },
+        about: { "@id": ORG },
+        primaryImageOfPage: `${site.url}/og.jpg`,
         inLanguage: "en-ZA",
       },
       {
         "@type": "FAQPage",
         "@id": `${site.url}/#faq`,
+        isPartOf: { "@id": WEBPAGE },
         mainEntity: faqs.map((item) => ({
           "@type": "Question",
           name: item.q,

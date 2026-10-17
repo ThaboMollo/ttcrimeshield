@@ -8,7 +8,7 @@ export function Hero() {
     <section id="top" className="relative isolate flex min-h-[100svh] items-center overflow-hidden">
       <Image
         src="/img/operative.jpg"
-        alt=""
+        alt="TT Crimeshield close protection officer on duty, providing VIP protection in Gauteng"
         fill
         priority
         sizes="100vw"

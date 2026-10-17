@@ -54,7 +54,7 @@ export function Recovery() {
             <div className="card-edge mt-14 grid items-center gap-8 overflow-hidden rounded-xl p-6 sm:p-10 lg:grid-cols-[auto_1fr_auto]">
               <Image
                 src="/badge-bounty.png"
-                alt=""
+                alt="TT Crimeshield Bounty Hunter unit badge — tracing and missing persons"
                 width={1145}
                 height={1140}
                 className="mx-auto h-28 w-28 object-contain sm:h-32 sm:w-32"

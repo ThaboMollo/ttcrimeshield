@@ -11,11 +11,18 @@ export const site = {
   emails: ["info@ttcrimeshield.co.za", "ttcrimeshield@gmail.com"],
 
   /**
-   * The address the site is actually served from. Everything canonical — og:url,
-   * sitemap, structured data — is derived from this, so moving to the .co.za
-   * domain later is a one-line change here.
+   * The canonical address the site is served from. Everything canonical — og:url,
+   * sitemap, structured data — is derived from this, so a domain move is a
+   * one-line change here.
+   *
+   * `www` is deliberate: it is the Vercel production domain, and the apex
+   * (ttcrimeshield.co.za) 308-redirects to it. Pointing canonical anywhere else
+   * tells Google to index a URL that only redirects.
    */
-  url: "https://ttcrimeshield.vercel.app",
+  url: "https://www.ttcrimeshield.co.za",
+
+  /** Hostname of the old Vercel preview alias, 301-redirected in next.config.ts. */
+  legacyHost: "ttcrimeshield.vercel.app",
 
   /** Home province first, then the national footprint. Used in copy and schema. */
   region: "Gauteng",

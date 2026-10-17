@@ -13,9 +13,19 @@ const display = Oswald({
 
 const body = Inter({ variable: "--font-body", subsets: ["latin"], display: "swap" });
 
-const title = `${site.legalName} | VIP Protection & Vehicle Recovery in ${site.region}`;
+/**
+ * Kept under ~60 characters so Google shows it whole, keyword-first and brand
+ * last — the previous title led with the legal name and was truncated before a
+ * searcher ever reached "VIP Protection".
+ */
+const title = `VIP Protection & Vehicle Recovery ${site.region} | ${site.name}`;
+
+/** ~160 characters: the practical limit before Google clips the snippet. */
 const description =
-  "24/7 VIP and executive protection, event security, CCTV camera installation, chauffeured vehicle hire and stolen vehicle recovery across Gauteng and South Africa. Locate your stolen vehicle from R10 000. Call 062 651 5803.";
+  "24/7 VIP and executive protection, event security, CCTV installation, chauffeur hire and stolen vehicle recovery across Gauteng and South Africa. Call 062 651 5803.";
+
+/** Longer, fuller headline for link previews, where there is room for it. */
+const socialTitle = `${site.legalName} | VIP Protection & Vehicle Recovery in ${site.region}`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -49,7 +59,7 @@ export const metadata: Metadata = {
     locale: "en_ZA",
     url: site.url,
     siteName: site.legalName,
-    title,
+    title: socialTitle,
     description,
     images: [
       {
@@ -63,7 +73,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title,
+    title: socialTitle,
     description,
     images: ["/og.jpg"],
   },
@@ -80,8 +90,18 @@ export const metadata: Metadata = {
   },
   alternates: { canonical: "/" },
   formatDetection: { telephone: true, address: true, email: true },
-  // Paste the token from Google Search Console here to verify ownership.
-  // verification: { google: "..." },
+  /**
+   * Set GOOGLE_SITE_VERIFICATION / BING_SITE_VERIFICATION in Vercel to verify
+   * ownership via meta tag. Omitted entirely when unset, so no empty tag ships.
+   */
+  verification: {
+    ...(process.env.GOOGLE_SITE_VERIFICATION
+      ? { google: process.env.GOOGLE_SITE_VERIFICATION }
+      : {}),
+    ...(process.env.BING_SITE_VERIFICATION
+      ? { other: { "msvalidate.01": process.env.BING_SITE_VERIFICATION } }
+      : {}),
+  },
 };
 
 export const viewport: Viewport = {
